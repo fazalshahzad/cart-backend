@@ -13,3 +13,20 @@ const time = today.getTime();
 
 
 //start block schema
+
+const ProductSchema =mongoose.Schema({
+    ProductName:{type:String, required:true},
+    ProductPrice:{type:Number, required:true},
+    Status: {type:Number, default:1},
+    CreatedData: {
+        type:String,
+        default:`${year}-${month}-${day},${time}`,
+    }
+})
+
+
+//exporting schema
+
+
+module.exports=mongoose.model('ProductCollection',ProductSchema);
+
