@@ -26,13 +26,24 @@ const ProductData = async (req, res) => {
 
         res.json({
             Message:error.Message,
-            Body:null
+            Result:null,
+            Data:false
         })
         
     }
 
 }
-const GetProductData = (req, res) => {
+const GetProductData = async(req, res) => {
+    try {
+        const DocToGet = await ProductModel.find();
+        res.json({
+            Message: `Document found`,
+            Data:true,
+            Result:DocToGet
+        })
+    } catch (error) {
+        
+    }
     
 }
 
