@@ -71,6 +71,24 @@ const UpdateMyProductData = async(req, res) => {
             Data: false})
     }
 }
+const DeleteMyProductData = async(req, res) => {
+    try {
+
+        const DocToDelete = await ProductModel.deleteMany(
+            
+        )
+        res.json({
+            Message: `Document Updated`,
+            Data: true,
+            Result: DocToUpdate
+        })
+    } catch (error) {
+        res.json({
+            Message: error.Message,
+            Result: null,
+            Data: false})
+    }
+}
 
 
 module.exports = {
