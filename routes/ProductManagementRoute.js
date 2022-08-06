@@ -11,7 +11,7 @@ const {ProductData,
 Router.post('/ProductData',ProductData);
 Router.get('/GetProductData',GetProductData);
 Router.post('/UpdateMyProductData',UpdateMyProductData);
-Router.post('/DeleteMyProductData',DeleteMyProductData);
+Router.delete('/DeleteMyProductData',DeleteMyProductData);
 
 
 module.exports = Router;
