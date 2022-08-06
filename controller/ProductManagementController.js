@@ -74,8 +74,8 @@ const UpdateMyProductData = async(req, res) => {
 const DeleteMyProductData = async(req, res) => {
     try {
 
-        const DocToDelete = await ProductModel.deleteMany(
-            
+        const DocToDelete = await ProductModel.deleteOne(
+            {Status:0}
         )
         res.json({
             Message: `Document Updated`,
