@@ -94,7 +94,8 @@ const DeleteMyProductData = async(req, res) => {
 module.exports = {
     ProductData,
     GetProductData,
-    UpdateMyProductData
+    UpdateMyProductData,
+    DeleteMyProductData
 
 }
 
