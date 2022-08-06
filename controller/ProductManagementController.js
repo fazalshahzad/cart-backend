@@ -80,7 +80,7 @@ const DeleteMyProductData = async(req, res) => {
         res.json({
             Message: `Document Updated`,
             Data: true,
-            Result: DocToUpdate
+            Result: DocToDelete
         })
     } catch (error) {
         res.json({
