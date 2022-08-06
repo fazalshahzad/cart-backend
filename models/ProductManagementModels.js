@@ -15,7 +15,7 @@ const time = today.getTime();
 //start block schema
 
 const ProductSchema =mongoose.Schema({
-    ProductName:{type:String, required:true, unique:true},
+    ProductName:{type:String, required:true,},
     ProductPrice:{type:Number, required:true},
     Status: {type:Number, default:1},
     CreatedData: {
