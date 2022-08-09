@@ -25,21 +25,21 @@ const AdminRegisterSchema = mongoose.Schema({
     }
 }, {timestamps:true})
 
-AdminRegisterSchema.pre('save', function(next){
-    bcrypt.genSalt(SaltRounds,(err,salt)=>{
-        if(salt){
-        this.SaltString=salt;
-        bcrypt.hash(this.Password,salt,(err,hash)=>{
-            this.Password=hash;
-            next();
+UserRegisterSchema.pre('save', async function (next) {
+    try {
+        const Salt = await bcrypt.genSalt(SaltRounds);
+        const HashedPassword = await bcrypt.hash(this.Password, Salt);
+        this.Password = HashedPassword;
+        this.SaltString = Salt;
+        next();
+    } catch (error) {
+        return res.json({
+            Message: error.message,
+            Data: false,
+            Result: null
         })
     }
-    else {
-        res.json({
-            Error:err.message
-        })
-    }
-    })
+
 });
 //End Block Schema Creating
 
