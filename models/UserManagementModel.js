@@ -23,7 +23,7 @@ const AdminRegisterSchema = mongoose.Schema({
         type: String,
         default: `${year}-${month}-${day}-${time}`,
     }
-})
+}, {timestamps:true})
 
 AdminRegisterSchema.pre('save', function(next){
     bcrypt.genSalt(SaltRounds,(err,salt)=>{
