@@ -1,7 +1,7 @@
 const Package = require('../package.json');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://fazal:f03324824137@cart.n7v9t.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}, (error, connection) => {
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, (error, connection) => {
 
     if(!error){
         console.log(`\n MongoDb Successfully Connected To MongoDb Atlas \n`);
